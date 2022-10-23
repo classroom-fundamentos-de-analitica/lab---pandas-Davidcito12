@@ -142,7 +142,7 @@ def pregunta_08():
 
 def pregunta_09():
     cop = tbl0.copy()
-    tbl0.copy()['year'] =  [x.split('-')[0] for x in tbl0['_c3'].tolist()]
+    cop['year'] =  [x.split('-')[0] for x in tbl0['_c3'].tolist()]
     return cop
 
     """
