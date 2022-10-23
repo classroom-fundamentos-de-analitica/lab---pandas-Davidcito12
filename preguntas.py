@@ -141,6 +141,10 @@ def pregunta_08():
 
 
 def pregunta_09():
+    cop = tbl0.copy()
+    tbl0.copy()['year'] =  [x.split('-')[0] for x in tbl0['_c3'].tolist()]
+    return cop
+
     """
     Agregue el año como una columna al archivo `tbl0.tsv`.
 
@@ -155,7 +159,6 @@ def pregunta_09():
     39   39   E    5  1998-01-26  1998
 
     """
-    return
 
 
 def pregunta_10():
