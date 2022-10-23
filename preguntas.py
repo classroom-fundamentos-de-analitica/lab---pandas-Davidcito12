@@ -106,7 +106,7 @@ def pregunta_06():
 
 def pregunta_07():
     z = tbl0[['_c1', '_c2']].groupby(['_c1']).sum()
-    return Z.squeeze()
+    return z.squeeze()
     """
     Calcule la suma de la _c2 por cada letra de la _c1 del archivo `tbl0.tsv`.
 
@@ -121,7 +121,7 @@ def pregunta_07():
     """
 
 def pregunta_08():
-    cop = tb10.copy()
+    cop = tbl0.copy()
     cop['suma'] = tbl0.sum(numeric_only=True, axis=1).tolist()
     return cop
     """
