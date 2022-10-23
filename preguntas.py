@@ -15,9 +15,8 @@ tbl2 = pd.read_csv("tbl2.tsv", sep="\t")
 
 
 def pregunta_01():
+    return len(tbl0)
     """
-    ¿Cuál es la cantidad de filas en la tabla `tbl0.tsv`?
-
     Rta/
     40
 
@@ -26,6 +25,7 @@ def pregunta_01():
 
 
 def pregunta_02():
+    return len(tbl0.columns)
     """
     ¿Cuál es la cantidad de columnas en la tabla `tbl0.tsv`?
 
@@ -37,6 +37,8 @@ def pregunta_02():
 
 
 def pregunta_03():
+    
+    return tbl0['_c1'].value_counts().sort_index()
     """
     ¿Cuál es la cantidad de registros por cada letra de la columna _c1 del archivo
     `tbl0.tsv`?
@@ -54,6 +56,8 @@ def pregunta_03():
 
 
 def pregunta_04():
+    Z = tbl0[['_c1', '_c2']].groupby(['_c1']).mean()
+    return Z.squeeze()
     """
     Calcule el promedio de _c2 por cada letra de la _c1 del archivo `tbl0.tsv`.
 
@@ -69,6 +73,8 @@ def pregunta_04():
 
 
 def pregunta_05():
+    Z = tbl0[['_c1', '_c2']].groupby(['_c1']).max()
+    return Z.squeeze()
     """
     Calcule el valor máximo de _c2 por cada letra en la columna _c1 del archivo
     `tbl0.tsv`.
@@ -86,6 +92,8 @@ def pregunta_05():
 
 
 def pregunta_06():
+    U = tbl1['_c4'].unique()
+    return sorted([x.upper() for x in U])
     """
     Retorne una lista con los valores unicos de la columna _c4 de del archivo `tbl1.csv`
     en mayusculas y ordenados alfabéticamente.
@@ -94,10 +102,11 @@ def pregunta_06():
     ['A', 'B', 'C', 'D', 'E', 'F', 'G']
 
     """
-    return
 
 
 def pregunta_07():
+    z = tbl0[['_c1', '_c2']].groupby(['_c1']).sum()
+    return Z.squeeze()
     """
     Calcule la suma de la _c2 por cada letra de la _c1 del archivo `tbl0.tsv`.
 
@@ -110,10 +119,11 @@ def pregunta_07():
     E    67
     Name: _c2, dtype: int64
     """
-    return
-
 
 def pregunta_08():
+    cop = tb10.copy()
+    cop['suma'] = tbl0.sum(numeric_only=True, axis=1).tolist()
+    return cop
     """
     Agregue una columna llamada `suma` con la suma de _c0 y _c2 al archivo `tbl0.tsv`.
 
@@ -128,7 +138,6 @@ def pregunta_08():
     39   39   E    5  1998-01-26    44
 
     """
-    return
 
 
 def pregunta_09():
