@@ -226,6 +226,10 @@ def pregunta_12():
 
 
 def pregunta_13():
+    Z1 = tbl0.copy() ; Z2 = tbl2.copy()
+    ans = pd.merge(Z1, Z2)
+    ans.drop(["_c0","_c2"], axis=1,inplace=True) 
+    return ans.groupby("_c1").sum().squeeze()
     """
     Si la columna _c0 es la clave en los archivos `tbl0.tsv` y `tbl2.tsv`, compute la
     suma de tbl2._c5b por cada valor en tbl0._c1.
