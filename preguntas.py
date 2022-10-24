@@ -213,21 +213,16 @@ def pregunta_11():
 
 
 def pregunta_12():
-    """
-    Construya una tabla que contenga _c0 y una lista separada por ',' de los valores de
-    la columna _c5a y _c5b (unidos por ':') de la tabla `tbl2.tsv`.
-
-    Rta/
-        _c0                                  _c5
-    0     0        bbb:0,ddd:9,ggg:8,hhh:2,jjj:3
-    1     1              aaa:3,ccc:2,ddd:0,hhh:9
-    2     2              ccc:6,ddd:2,ggg:5,jjj:1
-    ...
-    37   37                    eee:0,fff:2,hhh:6
-    38   38                    eee:0,fff:9,iii:2
-    39   39                    ggg:3,hhh:8,jjj:5
-    """
-    return
+    Z1 = [x for x in tbl2.groupby(['_c0'])['_c5a'].apply(list)]; Z2 = [x for x in tbl2.groupby(['_c0'])['_c5b'].apply(list)] 
+    c_0 = [x for x in tbl1['_c0'].unique()] ; K = [] ; lenght = len(Z1) ; out1 = []
+    for z in range(lenght):
+        for k in range(len(Z1[z])):out1.append(f'{Z1[z][k]}:{Z2[z][k]}')
+        out2 = ""
+        for n in sorted(out1): out2 += str(n)+","
+        out2 = out2[:-1]
+        K.append(out2)
+        out1 = []
+    return pd.DataFrame({'_c0':c_0, '_c5':K})
 
 
 def pregunta_13():
