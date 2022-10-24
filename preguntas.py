@@ -193,7 +193,7 @@ def pregunta_11():
             out += f'{L},'
         out = out[:-1]
         K.append(out)
-        return pd.DataFrame({"_c0" : c_0, "_c4": K})
+    return pd.DataFrame({"_c0" : c_0, "_c4": K})
     """
     Construya una tabla que contenga _c0 y una lista separada por ',' de los valores de
     la columna _c4 del archivo `tbl1.tsv`.
