@@ -184,6 +184,16 @@ def pregunta_10():
     """
 
 def pregunta_11():
+    Z = [x for x in tbl1.groupby(['_c0'])['_c4'].apply(list)] ; K = []
+    c_0 = [x for x in tbl1['_c0'].unique()]
+
+    for i in Z:
+        out = ""
+        for L in sorted(i):
+            out += f'{L},'
+        out = out[:-1]
+        K.append(out)
+        return pd.DataFrame({"_c0" : c_0, "_c4": K})
     """
     Construya una tabla que contenga _c0 y una lista separada por ',' de los valores de
     la columna _c4 del archivo `tbl1.tsv`.
